@@ -1,2 +1,2 @@
-### PDFJoin is a Python script that, well, joins PDFs using the PyPDF2 lib  
-### Just clone, add the files to the pdfjoin folder and run RUN.bat
+#### PDFJoin is a Python script that, well, joins PDFs using the PyPDF2 lib  
+ Just clone, add the files to the pdfjoin folder and run RUN.bat
