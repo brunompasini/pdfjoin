@@ -2,7 +2,7 @@ def joinPDF():
   try:
     import os
     from PyPDF2 import PdfFileMerger
-    os.chdir("../PDFjoin")
+    os.chdir("../pdfjoin")
   except ImportError:
     print("Could not import")
   
