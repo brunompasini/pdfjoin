@@ -34,14 +34,3 @@ def joinPDF():
   print("Finished")
 
 joinPDF()
-"""
-from PyPDF2 import PdfFileMerger
-pdfs=['0_Capa.pdf', '01_Sumario.pdf', '1_Introdução.pdf', '2_Transformada_Laplace.pdf', '3_Representação_Sistemas.pdf', '4_Estudo_Caso.pdf', '5_Respostas_Temporais.pdf', '6_Método_Lugar_Raízes.pdf', '7_Resposta_Frequencia.pdf', '8_Compensação.pdf']
-merger = PdfFileMerger(strict=False)
-for pdf in pdfs:
-  merger.append(pdf)
-
-merger.write("result.pdf")
-merger.close()
-print("Finished")
-"""
