@@ -26,11 +26,14 @@ def pdfjoin():
       merger.append(pdf)
   
   fileName = input("Name of the result file: ")
-  if not(fileName.endswith(".pdf")):
-    fileName = fileName+".pdf"
+  if fileName!="0" and fileName!="":
+    if not(fileName.endswith(".pdf")):
+      fileName = fileName+".pdf"
 
-  merger.write(fileName)
-  merger.close()
-  print("Finished")
+    merger.write(fileName)
+    merger.close()
+    print("Finished")
+  else:
+    print("PDF was not made")
 
 pdfjoin()
