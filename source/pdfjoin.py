@@ -1,4 +1,4 @@
-def joinPDF():
+def pdfjoin():
   try:
     import os
     from PyPDF2 import PdfFileMerger
@@ -33,4 +33,4 @@ def joinPDF():
   merger.close()
   print("Finished")
 
-joinPDF()
+pdfjoin()
