@@ -1,3 +1,3 @@
 python -m pip install -r requirements.txt
-python "source/pdfjoin.py"
+python "pdfjoin.py"
 pause

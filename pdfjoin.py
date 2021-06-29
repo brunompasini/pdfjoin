@@ -1,14 +1,15 @@
-def pdfjoin():
+def main():
   try:
+    import sys
     import os
     from PyPDF2 import PdfFileMerger
-    os.chdir("../pdfjoin")
+    #os.chdir("../pdfjoin")
   except ImportError:
     print("Could not import")
   
-  nome = None
   pdfs = []
-
+  
+  nome = ''
   while nome != "0":
     nome = input("Type the name of the PDF file or enter 0 to finish: ")
     if str(nome) == "0":
@@ -36,4 +37,4 @@ def pdfjoin():
   else:
     print("PDF was not made")
 
-pdfjoin()
+main()
