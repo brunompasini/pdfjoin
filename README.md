@@ -1,3 +1,5 @@
+### Do something in cmd like "python pdfjoin file1.pdf file2.pdf"
+
 #### PDFJoin é um script que junta PDFs usando a lib PyPDF2 
 Para usar é só clonar o repositório, colocar os pdfs na pasta principal e rodar o .bat  
 
