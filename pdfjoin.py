@@ -1,47 +1,40 @@
-def main():
-  try:
-    import sys
-    import os
+from datetime import datetime
+import argparse
+from typing import List
+try:
     from PyPDF2 import PdfFileMerger
-    #os.chdir("../pdfjoin")
-  except ImportError:
-    print("Could not import")
-  
-  pdfs = []
-  nome = ''
+except ImportError:
+    print("You don\'t have PyPDF installed")
 
-  if len(sys.argv) > 1:
-    pdfs = sys.argv[1:]
-  for el in pdfs:
-    if not(el.endswith(".pdf")):
-      el = el+".pdf"
 
-      """ Deprecated version :
-        else:
-    w hile nome != "0":
-      nome = input("Type the name of the PDF file or enter 0 to finish: ")
-      if str(nome) == "0":
-        break
-      if not(nome.endswith(".pdf")):
-        nome = nome+".pdf"
-      pdfs.append(nome)
-      print("%d Files already loaded: "%(len(pdfs)))
-      for el in pdfs:
-        print(el,end=", ")
-      print('\n')
-    """
-  merger = PdfFileMerger()
-  for pdf in pdfs:
-      merger.append(pdf)
-  fileName = input("Name of the result file: ")
-  if fileName!="0" and fileName!="":
-    if not(fileName.endswith(".pdf")):
-      fileName = fileName+".pdf"
+# Defining a whole function just to join (maybe create a wrapper class ? Someday ?)
+def join(name: str, to_join: List[str]):
+    pdfs = []
+    for el in to_join:
+        if not(el.endswith('.pdf')):
+            el = el + '.pdf'
+        pdfs.append(el)
+    if not(name.endswith('.pdf')):
+        name = name + '.pdf'
 
-    merger.write(fileName)
+    merger = PdfFileMerger()
+    for pdf in pdfs:
+        merger.append(pdf)
+    file_name = name
+    merger.write(file_name)
     merger.close()
-    print("Finished")
-  else:
-    print("Error: PDF was not made")
+
+
+# Changed to use real argument parsing
+def main():
+    default_name = 'result_PDF_' + datetime.now().strftime("%d_%m_%Y_%H_%M") + '.pdf'
+
+    parser = argparse.ArgumentParser(description='*pdfjoin.py is my tool to join pdfs, I\'m always working on it*')
+    parser.add_argument('-n', '--name', default=default_name, help='Name of the result file, default value is \'resultPDF_day_month_year_hour_min.pdf\'')
+    parser.add_argument('files', help='Type all files to join', nargs='+')
+    all_args = parser.parse_args()
+
+    join(all_args.name, all_args.files)
+
 
 main()
