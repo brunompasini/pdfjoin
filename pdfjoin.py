@@ -1,10 +1,13 @@
 from datetime import datetime
+import os
 import argparse
 from typing import List
 try:
     from PyPDF2 import PdfFileMerger
 except ImportError:
     print("You don\'t have PyPDF installed")
+
+os.chdir('to_join/')
 
 
 # Defining a whole function just to join (maybe create a wrapper class ? Someday ?)
@@ -21,7 +24,8 @@ def join(name: str, to_join: List[str]):
     for pdf in pdfs:
         merger.append(pdf)
     file_name = name
-    merger.write(file_name)
+    
+    merger.write('../end/'+file_name)
     merger.close()
 
 
@@ -34,6 +38,8 @@ def main():
     parser.add_argument('files', help='Type all files to join', nargs='+')
     all_args = parser.parse_args()
 
+    
+    
     join(all_args.name, all_args.files)
 
 
