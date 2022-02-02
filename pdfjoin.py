@@ -54,6 +54,7 @@ def main():
 
     if all_args.start:
         return
+        
     else:
         check
         if len(all_args.files) == 0:
